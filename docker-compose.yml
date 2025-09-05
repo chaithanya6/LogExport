@@ -11,10 +11,10 @@ services:
       - postgres_data:/var/lib/postgresql/data
     ports:
       - "5432:5432"
- 
-  log-analyzer:
-    build: ./log-analyzer
-    container_name: log-analyzer
+
+  log-exporter:
+    build: .
+    container_name: log-exporter
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/logs
       SPRING_DATASOURCE_USERNAME: logs
@@ -22,7 +22,7 @@ services:
     depends_on:
       - postgres
     ports:
-      - "8080:8080"
+      - "9097:9097"
  
 volumes:
   postgres_data:
