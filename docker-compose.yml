@@ -4,7 +4,7 @@ services:
     image: postgres:16
     container_name: postgres-db
     environment:
-      POSTGRES_DB: logs
+      POSTGRES_DB: logdb
       POSTGRES_USER: logs
       POSTGRES_PASSWORD: logs
     volumes:
@@ -16,9 +16,9 @@ services:
     build: .
     container_name: log-exporter
     environment:
-      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/logs
-      SPRING_DATASOURCE_USERNAME: logs
-      SPRING_DATASOURCE_PASSWORD: logs
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/logdb
+      SPRING_DATASOURCE_USERNAME: postgres
+      SPRING_DATASOURCE_PASSWORD: tiger
     depends_on:
       - postgres
     ports:
