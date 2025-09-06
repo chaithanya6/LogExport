@@ -5,8 +5,8 @@ services:
     container_name: postgres-db
     environment:
       POSTGRES_DB: logdb
-      POSTGRES_USER: logs
-      POSTGRES_PASSWORD: logs
+      POSTGRES_USER: postgre
+      POSTGRES_PASSWORD: tiger
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
