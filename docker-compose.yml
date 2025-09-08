@@ -6,11 +6,11 @@ services:
     environment:
       POSTGRES_DB: logdb
       POSTGRES_USER: postgres
-      POSTGRES_PASSWORD: tiger
+      POSTGRES_PASSWORD: postgres
     volumes:
       - postgres_data:/var/lib/postgresql/data
     ports:
-      - "5432:5432"
+      - "62184:62184"
 
   log-exporter:
     build: .
@@ -18,7 +18,7 @@ services:
     environment:
       SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/logdb
       SPRING_DATASOURCE_USERNAME: postgres
-      SPRING_DATASOURCE_PASSWORD: tiger
+      SPRING_DATASOURCE_PASSWORD: postgres
     depends_on:
       - postgres
     ports:
